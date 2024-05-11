@@ -5,11 +5,11 @@ from skimage.io import imread
 
 
 def get_image():
+    """download the image
+    """
 
-    # download the image
     img_url = \
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/'
-        'Mount_Fuji_from_Mount_Aino.jpg/640px-Mount_Fuji_from_Mount_Aino.jpg'
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mount_Fuji_from_Mount_Aino.jpg/640px-Mount_Fuji_from_Mount_Aino.jpg'
 
     im = imread(img_url)
 
@@ -23,8 +23,9 @@ def get_image():
 
 
 def show_histogram(im):
+    """show histgram of all colors
+    """
 
-    # show histgram of all colors
     hist_red, _ = np.histogram(im[:, :, 0], bins=64)
     hist_green, _ = np.histogram(im[:, :, 1], bins=64)
     hist_blue, _ = np.histogram(im[:, :, 2], bins=64)
@@ -37,7 +38,9 @@ def show_histogram(im):
 
 
 def show_color_selector(hist_red, hist_green, hist_blue):
-    # choose one color
+    """choose one color
+    """
+
     color = st.radio(
         "choose R, G, or B",
         ('R', 'G', 'B')
